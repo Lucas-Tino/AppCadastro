@@ -10,12 +10,15 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,13 +26,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.primeiroappcomposer.ui.theme.PrimeiroAppComposerTheme
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
@@ -56,14 +71,20 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun ProdutoItem() {
+    var nome by remember { mutableStateOf("") }
+    var telefone by remember { mutableStateOf("") }
+    var curso by remember { mutableStateOf("") }
+    var serie by remember { mutableStateOf("") }
+
+
     Column(
         Modifier
-            .height(250.dp)
-            .width(200.dp)
+            .fillMaxHeight()
+            .background(Color(40, 40, 40))
     ) {
         Box(
             modifier = Modifier
-                .height(100.dp)
+                .height(200.dp)
                 .background(
                     brush = Brush.horizontalGradient(
                         colors = listOf(
@@ -72,32 +93,167 @@ fun ProdutoItem() {
                     )
                 )
                 .fillMaxWidth()
+                .wrapContentSize(Alignment.Center, true)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
+                painter = painterResource(id = R.drawable.androids),
                 contentDescription = "Descrição Imagem",
+                contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .offset(y = (50).dp)
-                    .clip(shape = CircleShape)
+                    .size(225.dp)
+                    .offset(y = (75).dp)
+                    .clip(CircleShape)
                     .align(Alignment.BottomCenter)
             )
         }
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(90.dp))
 
-        Column(Modifier.padding(16.dp))
-        {
+        Column(
+            Modifier
+                .padding(24.dp)
+        ) {
             Text(
-                text = LoremIpsum(50).values.first(),
-                fontSize = 18.sp, fontWeight = FontWeight(700),
+                text = "Dados do Usuário",
+                fontSize = 28.sp,
+                fontWeight = FontWeight(700),
                 maxLines = 2,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
+                color = Color.White,
+                modifier = Modifier
+                    .padding(bottom = 24.dp)
+                    .align(Alignment.CenterHorizontally)
             )
-            Text(
-                text = "Texto 2",
-                Modifier.padding(top = 8.dp),
-                fontSize = 14.sp,
-                fontWeight = FontWeight(400)
+
+            TextField(
+                value = nome,
+                onValueChange = { nome = it },
+                label = { Text(
+                    text = "Nome"
+                ) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 24.dp),
+                colors = TextFieldDefaults.colors(
+                    unfocusedIndicatorColor = GreenMid,
+                    unfocusedLabelColor = Color.White,
+                    unfocusedContainerColor = Color(93, 93, 93),
+                    unfocusedTextColor = GreenMid,
+
+                    focusedIndicatorColor = GreenMid,
+                    focusedLabelColor = GreenMid,
+                    focusedContainerColor = Color(93, 93, 93),
+                    focusedTextColor = Color.White,
+
+                    cursorColor = GreenMid
+                ),
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    imeAction = ImeAction.Next,
+                    keyboardType = KeyboardType.Text
+                ),
+                singleLine = true
             )
+
+            TextField(
+                value = telefone,
+                onValueChange = { telefone = it },
+                label = { Text(
+                    text = "Telefone"
+                ) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 24.dp),
+                colors = TextFieldDefaults.colors(
+                    unfocusedIndicatorColor = GreenMid,
+                    unfocusedLabelColor = Color.White,
+                    unfocusedContainerColor = Color(93, 93, 93),
+                    unfocusedTextColor = GreenMid,
+
+                    focusedIndicatorColor = GreenMid,
+                    focusedLabelColor = GreenMid,
+                    focusedContainerColor = Color(93, 93, 93),
+                    focusedTextColor = Color.White,
+
+                    cursorColor = GreenMid
+                ),
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    imeAction = ImeAction.Next,
+                    keyboardType = KeyboardType.Phone
+                ),
+                singleLine = true
+            )
+
+            TextField(
+                value = curso,
+                onValueChange = { curso = it },
+                label = { Text(
+                    text = "Curso"
+                ) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 24.dp),
+                colors = TextFieldDefaults.colors(
+                    unfocusedIndicatorColor = GreenMid,
+                    unfocusedLabelColor = Color.White,
+                    unfocusedContainerColor = Color(93, 93, 93),
+                    unfocusedTextColor = GreenMid,
+
+                    focusedIndicatorColor = GreenMid,
+                    focusedLabelColor = GreenMid,
+                    focusedContainerColor = Color(93, 93, 93),
+                    focusedTextColor = Color.White,
+
+                    cursorColor = GreenMid
+                ),
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    imeAction = ImeAction.Next,
+                    keyboardType = KeyboardType.Text
+                ),
+                singleLine = true
+            )
+
+            TextField(
+                value = serie,
+                onValueChange = { serie = it },
+                label = { Text(
+                    text = "Série"
+                ) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 36.dp),
+                colors = TextFieldDefaults.colors(
+                    unfocusedIndicatorColor = GreenMid,
+                    unfocusedLabelColor = Color.White,
+                    unfocusedContainerColor = Color(93, 93, 93),
+                    unfocusedTextColor = GreenMid,
+
+                    focusedIndicatorColor = GreenMid,
+                    focusedLabelColor = GreenMid,
+                    focusedContainerColor = Color(93, 93, 93),
+                    focusedTextColor = Color.White,
+
+                    cursorColor = GreenMid
+                ),
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    imeAction = ImeAction.Done,
+                    keyboardType = KeyboardType.Text
+                ),
+                singleLine = true
+            )
+
+            Button(
+                onClick = { /* nada ainda */},
+                colors = ButtonDefaults.buttonColors(containerColor = GreenMid),
+                modifier = Modifier
+                    .padding(horizontal = 8.dp)
+                    .size(height = 60.dp, width = 120.dp)
+                    .align(Alignment.CenterHorizontally)
+            ) {
+                Text(
+                    text = "Salvar",
+                    color = Color.White,
+                    fontSize = 20.sp
+                )
+            }
         }
     }
 }
