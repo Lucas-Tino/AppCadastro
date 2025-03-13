@@ -96,7 +96,7 @@ fun ProdutoItem() {
                 .wrapContentSize(Alignment.Center, true)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.androids),
+                painter = painterResource(id = R.drawable.avatar),
                 contentDescription = "Descrição Imagem",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -135,13 +135,13 @@ fun ProdutoItem() {
                     .padding(bottom = 24.dp),
                 colors = TextFieldDefaults.colors(
                     unfocusedIndicatorColor = GreenMid,
-                    unfocusedLabelColor = Color.White,
-                    unfocusedContainerColor = Color(93, 93, 93),
-                    unfocusedTextColor = GreenMid,
+                    unfocusedLabelColor = GreenMid,
+                    unfocusedContainerColor = Color(75, 75, 75),
+                    unfocusedTextColor = Color.White,
 
                     focusedIndicatorColor = GreenMid,
                     focusedLabelColor = GreenMid,
-                    focusedContainerColor = Color(93, 93, 93),
+                    focusedContainerColor = Color(75, 75, 75),
                     focusedTextColor = Color.White,
 
                     cursorColor = GreenMid
@@ -164,13 +164,13 @@ fun ProdutoItem() {
                     .padding(bottom = 24.dp),
                 colors = TextFieldDefaults.colors(
                     unfocusedIndicatorColor = GreenMid,
-                    unfocusedLabelColor = Color.White,
-                    unfocusedContainerColor = Color(93, 93, 93),
-                    unfocusedTextColor = GreenMid,
+                    unfocusedLabelColor = GreenMid,
+                    unfocusedContainerColor = Color(75, 75, 75),
+                    unfocusedTextColor = Color.White,
 
                     focusedIndicatorColor = GreenMid,
                     focusedLabelColor = GreenMid,
-                    focusedContainerColor = Color(93, 93, 93),
+                    focusedContainerColor = Color(75, 75, 75),
                     focusedTextColor = Color.White,
 
                     cursorColor = GreenMid
@@ -193,13 +193,13 @@ fun ProdutoItem() {
                     .padding(bottom = 24.dp),
                 colors = TextFieldDefaults.colors(
                     unfocusedIndicatorColor = GreenMid,
-                    unfocusedLabelColor = Color.White,
-                    unfocusedContainerColor = Color(93, 93, 93),
-                    unfocusedTextColor = GreenMid,
+                    unfocusedLabelColor = GreenMid,
+                    unfocusedContainerColor = Color(75, 75, 75),
+                    unfocusedTextColor = Color.White,
 
                     focusedIndicatorColor = GreenMid,
                     focusedLabelColor = GreenMid,
-                    focusedContainerColor = Color(93, 93, 93),
+                    focusedContainerColor = Color(75, 75, 75),
                     focusedTextColor = Color.White,
 
                     cursorColor = GreenMid
@@ -222,13 +222,13 @@ fun ProdutoItem() {
                     .padding(bottom = 36.dp),
                 colors = TextFieldDefaults.colors(
                     unfocusedIndicatorColor = GreenMid,
-                    unfocusedLabelColor = Color.White,
-                    unfocusedContainerColor = Color(93, 93, 93),
-                    unfocusedTextColor = GreenMid,
+                    unfocusedLabelColor = GreenMid,
+                    unfocusedContainerColor = Color(75, 75, 75),
+                    unfocusedTextColor = Color.White,
 
                     focusedIndicatorColor = GreenMid,
                     focusedLabelColor = GreenMid,
-                    focusedContainerColor = Color(93, 93, 93),
+                    focusedContainerColor = Color(75, 75, 75),
                     focusedTextColor = Color.White,
 
                     cursorColor = GreenMid
@@ -249,7 +249,7 @@ fun ProdutoItem() {
                     .align(Alignment.CenterHorizontally)
             ) {
                 Text(
-                    text = "Salvar",
+                    text = "Enviar",
                     color = Color.White,
                     fontSize = 20.sp
                 )
